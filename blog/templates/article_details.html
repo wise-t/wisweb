@@ -1,0 +1,95 @@
+
+{% extends 'base.html' %}
+    {% block title %} {{post.title_tag}}{% endblock %}
+ 
+{% block content%}
+<!-- posts details -->
+
+    <h1>{{post.title}}</h1>
+    <small>By: 
+        {{post.author.first_name}}-
+        {{post.author.last_name}}- 
+        {{post.post_date}}
+
+        {%if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+                -<a href="{%url 'blog:update_post' post.pk %}"> (Edit)
+                </a>
+                <a href="{%url 'blog:delete_post' post.pk %}"> (Delete) </a>
+                <br/> 
+            {% endif %}
+        {% endif %}
+    </small><br/> 
+    <hr>
+    <br/> 
+    {{post.body|safe}}
+    <br/>
+    <br/>
+    <a href="{% url 'blog:home'%}" class="btn btn-secondary">
+    <br/>Back</a>
+
+    <br/><br/>
+    <hr>
+
+<!-- comments -->
+
+    {% for comment in post.comments.all %}
+
+    {% if user.is_authenticated or comment.approved_comment %}
+        <div class="comment">
+            <div class="date">
+                {{ comment.created_date }}
+                {% if not comment.approved_comment %}
+                <a class="btn btn-danger btn-sm" href="{% url 'blog:comment_remove' pk=comment.pk %}">remove<span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-danger btn-sm" href="{% url 'blog:comment_approve' pk=comment.pk %}">approve<span class="glyphicon glyphicon-ok"></span></a>
+                {% endif %}
+            </div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+        {% endif %}
+    {% empty %}
+        <a href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        <p>No comments here yet :(</p>
+    {% endfor %}
+   
+    
+     <!-- {% for comment in post.comments.all %}
+     <a href="{% url 'blog:article-detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %} -->
+
+    <!-- likes -->
+    <hr>
+    <br/>
+     
+    <form action="{% url 'blog:like_post' post.pk %}" method="POST">
+        {% csrf_token %}
+    {%if user.is_authenticated %}
+        {%if liked %}
+            <button type = "Submit", name= "post_id", value="{{ post.id }}", class ="btn btn-danger btn-sm">Unlike</button>
+        
+        {% else %}
+            <button type = "Submit", name= "post_id", value="{{ post.id }}", class ="btn btn-primary btn-sm">Like</button>
+        
+        {% endif %}
+    {% else %}
+       <small><a href="{%url 'login'%}">Login</a></small> to like
+
+    {% endif %}
+
+        -{{total_likes}} Likes 
+
+        
+    </form>
+    
+        
+
+
+{% endblock %}
