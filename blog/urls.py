@@ -1,6 +1,6 @@
 
-from django.urls import path,re_path
-#rom.import views
+from django.urls import path,re_path,reverse
+#from.import views
 from .views import HomeView , ArticleDetailView,AddPostView,UpdatePostView,DeletePostView,AddCategoryView,CategoryView,CategoryListView,LikeView,comment_approve,comment_remove
 from . import views
 

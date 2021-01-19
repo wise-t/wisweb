@@ -27,7 +27,7 @@ SECRET_KEY = 'fla9rqv@n4b$f)qk#z*wowt3va&&oj8&#0rjf5p#g25y0pz567'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1','localhost','140.82.121.4']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'django_extensions',
-    # 'debug_toolbar',
+    #'django_extensions',
+    #'debug_toolbar',
 
     'blog.apps.BlogConfig',
     'members',
