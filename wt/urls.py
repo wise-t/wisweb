@@ -25,7 +25,7 @@ handler500='wt.views.handler500'
 
 urlpatterns = [
     
-    path('/', views.home,name='home'),
+    path('', views.home,name='home'),
     path('about/',views.about,name='about'),
     path('contact/',views.contact,name='contact'),
     path('article1/',views.contact,name='article1'),
