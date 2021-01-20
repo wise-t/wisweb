@@ -13,7 +13,7 @@ from .models import  Post,Comment#,Category
 class PostForm(forms.ModelForm):
     class Meta:
         model=Post
-        fields=('title','title_tag','author','category','body')
+        fields=('title','title_tag','author','body')#,'category')
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control'}),
             'title_tag':forms.TextInput(attrs={'class':'form-control'}),
