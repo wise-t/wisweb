@@ -84,13 +84,23 @@ WSGI_APPLICATION = 'wt.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+  #  'DEFAULT': {
+  #      'ENGINE': 'DJANGO.DB.BACKENDS.SQLITE3',
+ #       'NAME': OS.PATH.JOIN(BASE_DIR, 'DB.SQLITE3'),
+ #   }
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'wt',
+        'USER':'postgres',
+        'PASSWORD':'koko2009.',
+        'HOST':'localhost',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
