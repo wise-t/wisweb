@@ -139,7 +139,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-MEDIA_URL ='/media/'
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
      os.path.join(BASE_DIR,'static'),
@@ -156,8 +156,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 #STATIC_ROOT =os.path.join(BASE_DIRS,'assets')
 
-#MEDIA_URL='/media/'
-#MEDIA_ROOT =os.path.join(BASE_DIRS,'media')
+MEDIA_URL='/media/'
+MEDIA_ROOT =os.path.join(BASE_DIRS,'media')
 
 
 #INTERNAL_IPS=['127.0.0.1']
