@@ -150,14 +150,14 @@ LOGOUT_REDIRECT_URL='home'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 
-#STATIC_ROOT =os.path.join(BASE_DIRS,'assets')
+
+STATIC_ROOT =os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL='/media/'
-MEDIA_ROOT =os.path.join(BASE_DIRS,'media')
+#MEDIA_ROOT =os.path.join(BASE_DIRS,'media')
 
 
 #INTERNAL_IPS=['127.0.0.1']
