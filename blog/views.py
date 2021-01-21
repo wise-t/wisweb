@@ -77,7 +77,7 @@ class AddPostView(CreateView):
 	#fields='__all__'
 	#fields=('title','body')
 class AddCategoryView(CreateView):
-	#model=Category
+	model=Category
 	#form_class=PostForm 
 	template_name='add_category.html'
 	fields='__all__'

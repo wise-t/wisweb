@@ -35,6 +35,7 @@ urlpatterns = [
     path('members/',include('django.contrib.auth.urls')),
     path('members',include('members.urls')),
     path('admin/', admin.site.urls),
+    path('Shop/',include('shop.urls')),
 ]
 
 # if settings.DEBUG:

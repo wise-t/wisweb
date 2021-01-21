@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fla9rqv@n4b$f)qk#z*wowt3va&&oj8&#0rjf5p#g25y0pz567'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'members',
     'ckeditor',
+    'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +139,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-
+MEDIA_URL ='/media/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
      os.path.join(BASE_DIR,'static'),
@@ -149,7 +150,7 @@ LOGOUT_REDIRECT_URL='home'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 
